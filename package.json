@@ -1,23 +1,25 @@
 {
-  "name": "Backend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/manuelabordad/backend.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/manuelabordad/backend/issues"
-  },
-  "homepage": "https://github.com/manuelabordad/backend#readme",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+	"name": "Backend",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"server1": "nodemon --inspect ./src/server1.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/manuelabordad/backend.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/manuelabordad/backend/issues"
+	},
+	"homepage": "https://github.com/manuelabordad/backend#readme",
+	"dependencies": {
+		"express": "^4.17.1",
+		"joi": "^17.4.2"
+	}
 }
