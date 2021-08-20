@@ -26,6 +26,7 @@ class Contenedor {
 		}
 	}
 	async save(producto) {
+		console.log("producto", producto);
 		try {
 			this.productos = await this.getAll();
 			if (isEmptyObject(this.productos)) {
@@ -86,5 +87,16 @@ class Contenedor {
 			return null;
 		}
 	};
+	// array = async () => {
+	// 	await contenido.save({ title: "apple pie", price: 20000, url: "otraURL" });
+
+	// 	await contenido.save({ title: "cupcackes", price: 10000, url: "otraURL" });
+	// 	await contenido.save({
+	// 		title: "chocolate cake",
+	// 		price: 40000,
+	// 		url: "otraURL",
+	// 	});
+	// };
 }
+
 module.exports = Contenedor;

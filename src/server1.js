@@ -13,30 +13,27 @@ app.listen(port, () => {
 	console.log("server activo en http://localhost:" + port);
 });
 
-const contenido = new Contenedor("./src/productos.json");
+const contenedor = new Contenedor("./productos.json");
 
-router.getAll("/api/productos", async (req, res) => {
+router.get("/", async (req, res) => {
 	const todos = await contenedor.getAll();
 
 	res.send(todos);
 });
-router.getById("/api/productos/:id", async (req, res) => {
-	try {
-		const productos = await this.getAll();
-		return productos.find((producto) => producto.id === id) || null;
-	} catch (error) {
-		return { error: "producto no encontrado" };
-	}
+router.get("/:id", async (req, res) => {
+	const { id } = req.params;
+	const byId = await contenedor.getById(id);
+	res.send(byId);
 });
 
-router.post("/api/productos", async (req, res) => {
+router.post("/", async (req, res) => {
 	const { body } = req;
 
-	await contenedor.saveNewProduct(body);
+	await contenedor.save(body);
 
-	res.send(body);
+	res.redirect("/");
 });
-router.delete("/api/productos/:id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
 	const { id } = req.params;
 
 	const borrado = await contenedor.deleteById(id);
@@ -48,7 +45,7 @@ router.delete("/api/productos/:id", async (req, res) => {
 	}
 });
 
-router.put("/api/productos/:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
 	const {
 		body,
 		params: { id },
@@ -64,16 +61,3 @@ router.put("/api/productos/:id", async (req, res) => {
 		res.send("El producto que se intenta actualizar no existe.");
 	}
 });
-
-// (async () => {
-// 	await contenido.save({ title: "apple pie", price: 20000, url: "otraURL" });
-
-// 	await contenido.save({ title: "cupcackes", price: 10000, url: "otraURL" });
-// 	await contenido.save({
-// 		title: "chocolate cake",
-// 		price: 40000,
-// 		url: "otraURL",
-// 	});
-// 	console.log(await contenido.getAll());
-// 	console.log(await contenido.getById(2), "getById");
-// })();
