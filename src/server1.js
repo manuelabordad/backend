@@ -23,6 +23,8 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
 	const { id } = req.params;
 	const byId = await contenedor.getById(id);
+	console.log("id", id);
+	console.log("byId", byId);
 	res.send(byId);
 });
 

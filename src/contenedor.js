@@ -44,7 +44,10 @@ class Contenedor {
 	async getById(id) {
 		try {
 			const productos = await this.getAll();
-			return productos.find((producto) => producto.id === id) || null;
+
+			return (
+				productos.find((producto) => producto.id.toString() === id) || null
+			);
 		} catch (error) {
 			return null;
 		}
@@ -52,7 +55,10 @@ class Contenedor {
 	async deleteById(id) {
 		try {
 			const productos = await this.getAll();
-			const newArray = productos.filter((producto) => producto.id !== id);
+			const newArray = productos.filter(
+				(producto) => producto.id.toString() !== id
+			);
+			console.log("newArray", newArray);
 			await fs.promises.writeFile(this.ruta, JSON.stringify(newArray));
 		} catch (error) {
 			return null;
