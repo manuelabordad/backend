@@ -84,11 +84,8 @@ class Contenedor {
 
 			lista[index] = producto;
 
-			const nuevaListaJson = this.stringify(lista);
-
-			await this.saveList(nuevaListaJson);
-
-			return producto;
+			await fs.promises.writeFile(this.ruta, JSON.stringify(lista));
+			return await this.getById(id);
 		} else {
 			return null;
 		}
