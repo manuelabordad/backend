@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Formulario</title>
+	</head>
+
+	<body>
+		<div>
+			<h4>Ingresar un nuevo producto:</h4>
+
+			<form id="formulario" method="POST" action="/api/productos">
+				<label for="title">Título:</label>
+				<input type="text" name="title" id="title" required />
+
+				<label for="price">Precio:</label>
+				<input type="text" name="price" id="price" required />
+
+				<label for="url">URL de la imagen:</label>
+				<input type="text" name="url" id="url" required />
+
+				<input class="button-primary" type="submit" value="Enviar" />
+			</form>
+		</div>
+
+		<script>
+			document.getElementById("formulario").onsubmit = () => {
+				let titulo = document.getElementById("title").value;
+				let precio = document.getElementById("price").value;
+				alert(
+					"Nuevo producto agregado: \n Título: " +
+						titulo +
+						"\n Precio: $" +
+						precio
+				);
+			};
+		</script>
+	</body>
+</html>
