@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+	<title>hb</title>
+</head>
+<body>
+	
+{{#if productos}}
+<table class="table">
+	<thead>
+		<tr>
+			<th scope="col">title </th>
+			<th scope="col">price</th>
+			<th scope="col">url</th>
+
+		</tr>
+	</thead>
+	
+	{{#each productos as |producto|}}
+	<tbody>
+		<tr>
+			<td>{{producto.title}}</td>
+			<td> $ {{producto.price}}</td>
+			<td><img src="{{producto.thumbnail}}" /></td>
+		</tr>
+	{{/each}}
+	</tbody>
+</table>
+{{else}}
+
+
+		<h5>No se encontraron productos.</h5>
+
+	{{/if}}
+</body>
+</html>
+
+
+

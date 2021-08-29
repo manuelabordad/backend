@@ -1,0 +1,32 @@
+html 
+head 
+    title pug
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+			crossorigin="anonymous")
+    
+body 
+div
+	a(href="/")Formulario
+	a(href="/productos")Productos
+
+
+h4 Vista de Productos:
+
+if productos.length < 1
+  h5 No se encontraron productos.
+
+else
+  table class="table"
+    thead
+        tr
+            th Nombre:
+            th Precio:
+            th Foto:
+    tbody
+        each producto in productos
+            tr
+                td #{ producto.title }
+                td #{producto.price}
+                td #{img(src=producto.thumbnail)}
