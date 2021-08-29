@@ -24,7 +24,7 @@ io.on("connection", async (socket) => {
 	socket.emit("productos", products);
 
 	socket.on("nuevoProducto", async (producto) => {
-		await contenedorProductos.saveProduct(producto);
+		await contenedorProductos.save(producto);
 
 		io.emit("productos", products);
 	});
@@ -36,7 +36,7 @@ io.on("connection", async (socket) => {
 	socket.on("nuevoMensaje", async (msg) => {
 		msg.fyh = new Date().toLocaleString();
 
-		await contenedorMensajes.saveProduct(msg);
+		await contenedorMensajes.save(msg);
 
 		io.emit("mensajes", messages);
 	});
