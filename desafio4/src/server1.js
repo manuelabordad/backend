@@ -38,12 +38,16 @@ router.post("/", async (req, res) => {
 router.delete("/:id", async (req, res) => {
 	const { id } = req.params;
 
-	const borrado = await contenedor.deleteById(id);
+	try {
+		const borrado = await contenedor.deleteById(id);
 
-	if (borrado) {
-		res.send({ borrado });
-	} else {
-		res.send("El producto que se intenta borrar no existe.");
+		if (borrado) {
+			res.status(200).json({ productoBorrado: borrado });
+		} else {
+			res.send("El producto que se intenta borrar no existe.");
+		}
+	} catch (error) {
+		res.status(400).json({ error: error.message });
 	}
 });
 

@@ -32,7 +32,7 @@ class Contenedor {
 			if (isEmptyObject(this.productos)) {
 				producto.id = 1;
 			} else {
-				producto.id = this.productos.length + 1;
+				producto.id = this.productos[this.productos.length - 1].id + 1;
 			}
 			this.productos.push(producto);
 			await fs.promises.writeFile(
@@ -61,8 +61,9 @@ class Contenedor {
 			const newArray = productos.filter(
 				(producto) => producto.id.toString() !== id
 			);
-			console.log("newArray", newArray);
+
 			await fs.promises.writeFile(this.ruta, JSON.stringify(newArray, null, 2));
+			return id;
 		} catch (error) {
 			return null;
 		}
