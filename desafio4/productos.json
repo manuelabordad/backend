@@ -1,1 +1,20 @@
-[{"title":"miloja","price":"15000","url":"otraUrl","id":1},{"title":"chocolate cake","price":"40000","url":"http/:urlcake","id":2},{"title":"cupcackes","price":"10000","url":"http/:urlcupcake","id":3},{"title":"waffles","price":"10000","url":"http/:urlwaffles","id":4},{"title":"carrot cacke ","price":"30000","url":"url","id":5}]
+[
+	{
+		"title": "carrot cake ",
+		"price": "10000",
+		"url": "url",
+		"id": 1
+	},
+	{
+		"title": "apple pie ",
+		"price": "20000",
+		"url": "url",
+		"id": 3
+	},
+	{
+		"title": "miloja",
+		"price": 20000,
+		"url": "url",
+		"id": 4
+	}
+]
